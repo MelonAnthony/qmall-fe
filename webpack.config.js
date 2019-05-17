@@ -2,8 +2,9 @@
 * @Author: Qiansion
 * @Date:   2019-05-15 12:00:07
 * @Last Modified by:   Qiansion
-* @Last Modified time: 2019-05-16 22:57:12
+* @Last Modified time: 2019-05-18 02:17:39
 */
+//进度：下一节：4.12
 const path 				= require('path');
 const webpack 			= require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -36,10 +37,11 @@ var config = {
 	},
     resolve:{
         alias : {
-            util        :   __dirname+'/src/util',
-            page        :   __dirname+'/src/page',
-            service     :   __dirname+'/src/service',
-            image       :   __dirname+'/src/image',
+            node_modules    :   __dirname+'/node_modules',
+            util            :   __dirname+'/src/util',
+            page            :   __dirname+'/src/page',
+            service         :   __dirname+'/src/service',
+            image           :   __dirname+'/src/image',
         }
     },
 	module:{ //我写一个module
@@ -53,8 +55,12 @@ var config = {
         		})
         	},
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: /\.(gif|png|jpg|woff|svg|eot|ttf|woff2)(\?.*)?$/,
                 loader: 'url-loader?limit=100&name=resource/[name].[ext]'
+            },
+            {
+                 test: /\.string$/, 
+                 loader: 'html-loader'
             }
         ],
         

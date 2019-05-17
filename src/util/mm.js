@@ -2,7 +2,7 @@
 * @Author: Qiansion
 * @Date:   2019-05-16 22:07:25
 * @Last Modified by:   Qiansion
-* @Last Modified time: 2019-05-16 23:42:08
+* @Last Modified time: 2019-05-18 01:11:43
 */
 'use strict';
 //模板渲染插件hogan
@@ -74,10 +74,14 @@ var _mm = {
         if('email' === type){
             return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
         }
-	}
+	},
 	//统一登录处理
 	doLogin : function(){
 		window.location.href = './login.html?redirect='+encodeURIComponent(window.location.href);
+	},
+	//回到主页
+	goHome : function(){
+		window.location.href="./index.html";
 	}
 };
 
