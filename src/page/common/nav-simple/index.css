@@ -2,5 +2,16 @@
 * @Author: Qiansion
 * @Date:   2019-05-17 23:31:39
 * @Last Modified by:   Qiansion
-* @Last Modified time: 2019-05-17 23:31:39
+* @Last Modified time: 2019-05-18 11:04:16
 */
+.nav-simple{
+	height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+.nav-simple .logo{
+	font-size: 26px;
+	color: #c60023;
+	font-weight: bold;
+}

@@ -2,7 +2,7 @@
 * @Author: Qiansion
 * @Date:   2019-05-15 12:00:07
 * @Last Modified by:   Qiansion
-* @Last Modified time: 2019-05-18 02:17:39
+* @Last Modified time: 2019-05-18 11:14:53
 */
 //进度：下一节：4.12
 const path 				= require('path');
@@ -14,10 +14,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 var WEBPACK_ENV         = process.env.WEBPACK_ENV || 'dev';
 
 //获取html-webpack-plugin的页面
-var getHtmlConfig = function(name){
+var getHtmlConfig = function(name,title){
     return {
         template    :   './src/view/'+name+'.html',
         filename    :   'view/'+name+'.html',
+        title       :   title,
         inject      :   true,
         hash        :   true,
         chunks      :   ['common',name]
@@ -28,7 +29,8 @@ var config = {
         //webpack-dev-server --inline --port 8088
 		'common'  : ['./src/page/common/index.js'],
 		'index'   : ['./src/page/index/index.js'],
-		'login'   : ['./src/page/login/index.js']
+		'login'   : ['./src/page/login/index.js'],
+        'result'   : ['./src/page/result/index.js']
  	},
 	output : {
 		path : path.resolve(__dirname,'./dist/'),
@@ -72,8 +74,9 @@ var config = {
     //把css单独打包
 	new ExtractTextPlugin("css/[name].css"),
     //html模板处理
-    new HtmlWebpackPlugin(getHtmlConfig('index')),
-    new HtmlWebpackPlugin(getHtmlConfig('login')),
+    new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
+    new HtmlWebpackPlugin(getHtmlConfig('login','登录')),
+    new HtmlWebpackPlugin(getHtmlConfig('result','操作结果')),
     //独立通用模块
     new webpack.optimize.CommonsChunkPlugin({
       name : 'common',//这里的'common'回去找上面入口处引入的common

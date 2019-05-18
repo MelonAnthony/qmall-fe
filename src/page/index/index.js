@@ -2,11 +2,12 @@
 * @Author: Anthony
 * @Date:   2019-05-14 00:32:28
 * @Last Modified by:   Qiansion
-* @Last Modified time: 2019-05-18 02:14:16
+* @Last Modified time: 2019-05-18 10:57:20
 */
 'use strict';
 require("page/common/header/index.js");
 require("page/common/nav/index.js");
+require("page/common/nav-simple/index.js");
 var navSide = require("page/common/nav-side/index.js");
 require("page/common/footer/index.js");
 var _mm=require('util/mm.js');
